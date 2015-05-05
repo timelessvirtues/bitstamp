@@ -2,12 +2,12 @@
 
     npm install bitstamp-bluebird --save
 
-100% coverage API wrapper for the [Bitstamp REST API](https://www.bitstamp.net/api/) that returns Bluebird promises. Please refer to [Bitstamp's documentation](https://www.bitstamp.net/api/) for all call parameters. Check out `example.js` for a list of all the possible API calls and some example parameters.
+API wrapper for the [Bitstamp REST API](https://www.bitstamp.net/api/) with 100% coverage that returns Bluebird promises. Please refer to [Bitstamp's API documentation](https://www.bitstamp.net/api/) for call names & parameters. Check out `example.js` for a list of supported calls.
 
     var Bitstamp = require('bitstamp-bluebird');
-    var publicBitstamp = new Bitstamp();
+    var bitstamp = new Bitstamp();
 
-    publicBitstamp.transactions()
+    bitstamp.transactions()
     .then(console.dir)
     .catch(console.error);
 
