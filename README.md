@@ -1,24 +1,15 @@
 # Bitstamp
 
-    npm install bitstamp
+    npm install bitstamp-bluebird --save
 
-A basic API wrapper for the [Bitstamp REST API](https://www.bitstamp.net/api/). Please refer to [their documentation](https://www.bitstamp.net/api/) for all calls explained. Check out `example.js` for a list of all possible calls and their parameters.
+100% coverage API wrapper for the [Bitstamp REST API](https://www.bitstamp.net/api/) that returns Bluebird promises. Please refer to [Bitstamp's documentation](https://www.bitstamp.net/api/) for all call parameters. Check out `example.js` for a list of all the possible API calls and some example parameters.
 
-    var Bitstamp = require('bitstamp');
-    var bitstamp = new Bitstamp;
+    var Bitstamp = require('bitstamp-bluebird');
+    var publicBitstamp = new Bitstamp();
 
-    bitstamp.transactions(function(err, trades) {
-      console.log(trades);  
-    });
-
-
-## 0.1.0 - Big October 2013 update
-
-The whole private API authentication process looks different now. The result is that you have to provide different information to Bitstamp (generate an API key, provide key, secret and client ID - the last is your Bitstamp user ID). Check out the new examples in `example.js`.
-
-# Final
-
-If this wrapper helped you in any way, you can always leave me a tip at (BTC) 1KyQdQ9ctjCrGjGRCWSBhPKcj5omy4gv5S
+    publicBitstamp.transactions()
+    .then(console.dir)
+    .catch(console.error);
 
 # License
 
