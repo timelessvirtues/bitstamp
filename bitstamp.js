@@ -20,6 +20,9 @@ var Bitstamp = function(key, secret, client_id) {
     this.key = key;
     this.secret = secret;
     this.client_id = client_id;
+
+    // Expose id, key & secret to prototyped methods
+    _.bindAll.apply(_, [this].concat(_.functions(this)));
 };
 
 Bitstamp.prototype._request = function(method, path, data, args) {
@@ -37,7 +40,7 @@ Bitstamp.prototype._request = function(method, path, data, args) {
         options.headers['content-type'] = 'application/x-www-form-urlencoded';
     }
 
-    return new Promise(function(resolve, reject) {
+    return new Bluebird(function(resolve, reject) {
         var request = Https.request(options, function(response) {
             response.setEncoding('utf8');
             var buffer = '';
